@@ -47,7 +47,7 @@ public class Main {
                                 row.select("td").get(0).toString().toLowerCase(), "mailto:", ".org") + ".org");
                         break;
                     case ("3"):
-                        checkArray.add("810" + row.select("td").get(2).text().replace("-", "").replace("\u00a0", ""));
+                        checkArray.add(row.select("td").get(2).text().replace("-","–").replace("\u00a0", ""));
                         break;
                 }
             }
@@ -78,9 +78,13 @@ public class Main {
                 }
                 else if (response.equals("3"))
                 {
-                    if (item.equals("810"))
+                    if (item.equals(""))
                     {
                         item = "NONE";
+                    }
+                    else
+                    {
+                        item = "(810) " + item;
                     }
                 }
                 System.out.println("<item>" + item + "</item>");
@@ -103,9 +107,13 @@ public class Main {
                 }
                 else if (response.equals("3"))
                 {
-                    if (item.equals("810"))
+                    if (item.equals(""))
                     {
                         item = "NONE";
+                    }
+                    else
+                    {
+                        item = "810-" + item;
                     }
                 }
                 System.out.println("\"" + item + "\",");
